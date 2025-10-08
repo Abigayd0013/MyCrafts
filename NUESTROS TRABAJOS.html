@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCrafts - Nuestros Trabajos</title>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
+    
+    <style>
+        /* ESTILOS BASE (MANTENIENDO TU CÓDIGO) */
+        body {
+            background: #F2E0E2;
+            padding: 25px;
+            font-family: "hagrid", sans-serif;
+            margin: 0;
+        }
+
+        .neulis-cursive { font-family: "neulis-cursive", sans-serif; }
+        .neulis-sans { font-family: "neulis-sans", sans-serif; }
+        .hagrid { font-family: "hagrid", sans-serif; }
+
+        /* HEADER Y MENÚ (COMPLETO COMO EL ORIGINAL) */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .menu-principal {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 5px 0;
+            margin: 20px 0;
+        }
+
+        .menu-item {
+            font-family: "hagrid", sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover {
+           color: #ff6b9d;
+        }
+
+        /* TÍTULO MANUALIDADES (AGREGANDO ESTO) */
+        .titulo-manualidades {
+            text-align: center;
+            font-family: "neulis-cursive", sans-serif;
+            color: #292728;
+            font-size: 36px;
+            margin: 40px 0 20px 0;
+            text-transform: lowercase;
+        }
+
+        /* ESTRUCTURA DE 3 FILAS COMO EL PDF */
+        .contenedor-filas {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .fila {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* FILA 1: 2 columnas (Maquetas | Productos Temporada) */
+        .fila-1 {
+            grid-template-columns: 2fr 1fr;
+            height: 300px;
+        }
+
+        /* FILA 2: 3 columnas iguales */
+        .fila-2 {
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 250px;
+        }
+
+        /* FILA 3: 1 columna centrada */
+        .fila-3 {
+            grid-template-columns: 1fr;
+            height: 200px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* TARJETAS DE PRODUCTO */
+        .producto-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .producto-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 107, 157, 0.85), rgba(136, 133, 178, 0.95));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .producto-card:hover .producto-overlay {
+            opacity: 1;
+        }
+
+        .producto-nombre {
+            font-family: "neulis-cursive", sans-serif;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .producto-descripcion {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 16px;
+            color: white;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .btn-cotizar {
+            background: white;
+            color: #8885B2;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-family: "hagrid", sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-cotizar:hover {
+            background: #292728;
+            color: white;
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA CADA SECCIÓN */
+        .emergencia {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        }
+
+        .temporada {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 20px;
+            border-top: 2px solid #8885B2;
+        }
+
+        .footer-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item {
+            font-family: "hagrid", sans-serif;
+            font-size: 12px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-item:hover {
+            color: #ff6b9d;
+        }
+
+        .copyright {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 12px;
+            color: #8885B2;
+        }
+
+        /* BRILLOS (MANTENIENDO TU CÓDIGO) */
+        .contenedor-brillos {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .brillo {
+            position: absolute;
+            bottom: 0;
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #b56e9f;
+            animation: sparkleFromBottom 4s linear infinite;
+        }
+
+        @keyframes sparkleFromBottom {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .fila-1, .fila-2 {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .fila-1 .producto-card,
+            .fila-2 .producto-card {
+                height: 200px;
+            }
+            
+            .fila-3 .producto-card {
+                height: 150px;
+            }
+
+            .footer-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu-principal {
+                gap: 20px;
+            }
+
+            .titulo-manualidades {
+                font-size: 28px;
+                margin: 30px 0 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MENU DE ARRIBA -->
+    <div class="header">
+        <h1 class="neulis-cursive" style="color:#8885B2;">MyCrafts</h1>
+        
+        <nav class="menu-principal">
+            <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
+            <a href="ACERCA DE NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
+            <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
+        </nav>
+    </div>
+
+    <!-- TÍTULO MANUALIDADES (AGREGANDO ESTO) -->
+    <h2 class="titulo-manualidades">manualidades</h2>
+
+    <!-- CONTENIDO PRINCIPAL - 3 FILAS COMO EL PDF -->
+    <div class="contenedor-filas">
+        
+        <!-- FILA 1: Maquetas | Productos de Temporada -->
+        <div class="fila fila-1">
+            <!-- Maquetas -->
+            <div class="producto-card">
+                <div class="producto-imagen" style="background-image: url('IMG\ \(5\).jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Maquetas</div>
+                    <div class="producto-descripcion">Maquetas personalizadas a tu presupuesto</div>
+                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                </div>
+            </div>
+
+            <!-- Productos de Temporada -->
+            <div class="producto-card temporada">
+                <div class="producto-imagen" style="background-image: url('IMG\ \(19\).jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Productos de Temporada</div>
+                    <div class="producto-descripcion">Aprovecha los super precios y promociones que tenemos para ti</div>
+                    <button class="btn-cotizar">VER OFERTAS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILA 2: Decoración | Cuadernos | Trabajos Emergencia -->
+        <div class="fila fila-2">
+            <!-- Decoración -->
+            <div class="producto-card">
+                <div class="producto-imagen" style="background-image: url('IMG\ \(20\).jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Decoración para fiestas</div>
+                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                </div>
+            </div>
+
+            <!-- Cuadernos -->
+            <div class="producto-card">
+                <div class="producto-imagen" style="background-image: url('015.jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Cuadernos</div>
+                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                </div>
+            </div>
+
+            <!-- Trabajos Emergencia -->
+            <div class="producto-card emergencia">
+                <div class="producto-imagen" style="background-image: url('008.jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Trabajos de Emergencia</div>
+                    <div class="producto-descripcion">Pide tu trabajo de emergencia y te lo entregamos lo más pronto posible!!</div>
+                    <button class="btn-cotizar">CONTACTANOS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILA 3: Papelería personalizada -->
+        <div class="fila fila-3">
+            <div class="producto-card">
+                <div class="producto-imagen" style="background-image: url('006.jpg');">
+                    <!-- Imagen de fondo -->
+                </div>
+                <div class="producto-overlay">
+                    <div class="producto-nombre">Papeleria personalizada</div>
+                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <nav class="footer-menu">
+            <a href="NUESTROS TRABAJOS.html" class="footer-item">Nuestros Trabajos</a>
+            <a href="ACERCA DE NOSOTROS.html" class="footer-item">Acerca de Nosotros</a>
+            <a href="CONTACTO.html" class="footer-item">Contactanos</a>
+        </nav>
+        <div class="copyright">
+            © 2025 Abigayd. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="contenedor-brillos" id="contenedorBrillos"></div>
+
+    <script>
+        function crearBrillos() {
+            const contenedor = document.getElementById('contenedorBrillos');
+            contenedor.innerHTML = '';
+            
+            for (let i = 0; i < 12; i++) {
+                const brillo = document.createElement('div');
+                brillo.className = 'brillo';
+                brillo.style.left = Math.random() * 100 + '%';
+                brillo.style.bottom = Math.random() * 100 + 'px';
+                brillo.style.animationDelay = Math.random() * 4 + 's';
+                contenedor.appendChild(brillo);
+            }
+        }
+
+        crearBrillos();
+        setInterval(crearBrillos, 4000);
+    </script>
+</body>
+</html>

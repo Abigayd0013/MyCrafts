@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCrafts - Acerca de Nosotros</title>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
+    
+    <style>
+        /* ESTILOS BASE (MANTENIENDO TU CÓDIGO) */
+        body {
+            background: #F2E0E2;
+            padding: 25px;
+            font-family: "hagrid", sans-serif;
+            margin: 0;
+        }
+
+        .neulis-cursive { font-family: "neulis-cursive", sans-serif; }
+        .neulis-sans { font-family: "neulis-sans", sans-serif; }
+        .hagrid { font-family: "hagrid", sans-serif; }
+
+        /* HEADER Y MENÚ */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .menu-principal {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 5px 0;
+            margin: 20px 0;
+        }
+
+        .menu-item {
+            font-family: "hagrid", sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover {
+           color: #ff6b9d;
+        }
+
+        /* SECCIÓN ACERCA DE NOSOTROS */
+        .seccion-nosotros {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-principal {
+            text-align: center;
+            font-family: "neulis-cursive", sans-serif;
+            color: #8885B2;
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .historia {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .historia p {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #292728;
+            margin-bottom: 20px;
+        }
+
+        /* SECCIÓN LO QUE PODEMOS HACER */
+        .servicios-titulo {
+            text-align: center;
+            font-family: "neulis-cursive", sans-serif;
+            color: #292728;
+            font-size: 32px;
+            margin: 60px 0 40px 0;
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .servicio-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-nombre {
+            font-family: "neulis-cursive", sans-serif;
+            color: #8885B2;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .servicio-lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .servicio-lista li {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 14px;
+            color: #292728;
+            padding: 8px 0;
+            border-bottom: 1px solid #F2E0E2;
+            display: flex;
+            align-items: center;
+        }
+
+        .servicio-lista li:before {
+            content: "•";
+            color: #ff6b9d;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* SECCIÓN SUBLIMACIÓN Y PAPELERÍA */
+        .seccion-especial {
+            background: rgba(136, 133, 178, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .especial-titulo {
+            font-family: "neulis-cursive", sans-serif;
+            color: #8885B2;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grid-especial {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .especial-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .especial-icono {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .especial-texto {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 16px;
+            color: #292728;
+        }
+
+        /* SECCIÓN ARTE DIY */
+        .seccion-diy {
+            background: rgba(255, 107, 157, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .diy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .diy-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: "neulis-sans", sans-serif;
+            font-size: 14px;
+            color: #292728;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 20px;
+            border-top: 2px solid #8885B2;
+        }
+
+        .footer-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item {
+            font-family: "hagrid", sans-serif;
+            font-size: 12px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .copyright {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 12px;
+            color: #8885B2;
+        }
+
+        /* BRILLOS */
+        .contenedor-brillos {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .brillo {
+            position: absolute;
+            bottom: 0;
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #b56e9f;
+            animation: sparkleFromBottom 4s linear infinite;
+        }
+
+        @keyframes sparkleFromBottom {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu-principal {
+                gap: 20px;
+            }
+            
+            .grid-servicios {
+                grid-template-columns: 1fr;
+            }
+            
+            .historia {
+                padding: 20px;
+            }
+            
+            .footer-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MENU DE ARRIBA -->
+    <div class="header">
+        <h1 class="neulis-cursive" style="color:#8885B2;">MyCrafts</h1>
+        
+        <nav class="menu-principal">
+            <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
+            <a href="NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
+            <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
+        </nav>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL - ACERCA DE NOSOTROS -->
+    <section class="seccion-nosotros">
+        
+        <!-- HISTORIA -->
+        <h2 class="titulo-principal">ACERCA DE NOSOTROS</h2>
+        
+        <div class="historia">
+            <p>
+                MyCrafts nació hace 7 años con un sueño sencillo: decorar cuadernos con forros hechos a mano. 
+                Poco a poco, la creatividad fue creciendo y sumamos maquetas, manualidades y piezas personalizadas.
+            </p>
+            <p>
+                Hoy, MyCrafts es un espacio lleno de imaginación y pasión, donde cada creación refleja dedicación, 
+                amor por los detalles y la ilusión de compartir lo hecho a mano.
+            </p>
+        </div>
+
+        <!-- LO QUE PODEMOS HACER -->
+        <h3 class="servicios-titulo">LO QUE PODEMOS HACER</h3>
+
+        <div class="grid-servicios">
+            <!-- Vinil y personalización -->
+            <div class="servicio-card">
+                <div class="servicio-nombre">Vinil y personalización</div>
+                <ul class="servicio-lista">
+                    <li>Diseños en vinil adhesivo y textil</li>
+                    <li>Playeras personalizadas</li>
+                    <li>Tazas, termos y botellas decoradas</li>
+                    <li>Stickers y calcomanías</li>
+                    <li>Forrado y personalización de cuadernos/libratas</li>
+                </ul>
+            </div>
+
+            <!-- Decoración y hogar -->
+            <div class="servicio-card">
+                <div class="servicio-nombre">Decoración y hogar</div>
+                <ul class="servicio-lista">
+                    <li>Cuadros y letreros personalizados</li>
+                    <li>Macetas pintadas o forradas</li>
+                    <li>Velas decoradas</li>
+                    <li>Adornos para fiestas y eventos</li>
+                    <li>Accesorios y detalles</li>
+                </ul>
+            </div>
+
+            <!-- Accesorios y detalles -->
+            <div class="servicio-card">
+                <div class="servicio-nombre">Accesorios y detalles</div>
+                <ul class="servicio-lista">
+                    <li>Llaveros, pulseras y collares</li>
+                    <li>Bolsitas de regalo</li>
+                    <li>Recuerdos para eventos</li>
+                    <li>Detalles personalizados</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SUBLIMACIÓN Y PAPELERÍA -->
+        <div class="seccion-especial">
+            <h4 class="especial-titulo">Sublimación y estampado</h4>
+            <div class="grid-especial">
+                <div class="especial-item">
+                    <div class="especial-icono">☕</div>
+                    <div class="especial-texto">Sublimación en tazas, cojines y playeras</div>
+                </div>
+                <div class="especial-item">
+                    <div class="especial-icono">🎨</div>
+                    <div class="especial-texto">Impresiones con frases o ilustraciones únicas</div>
+                </div>
+                <div class="especial-item">
+                    <div class="especial-icono">🎁</div>
+                    <div class="especial-texto">Regalos personalizados con fotos</div>
+                </div>
+            </div>
+
+            <h4 class="especial-titulo" style="margin-top: 40px;">Papelería creativa</h4>
+            <div class="grid-especial">
+                <div class="especial-item">
+                    <div class="especial-icono">💌</div>
+                    <div class="especial-texto">Tarjetas y felicitaciones</div>
+                </div>
+                <div class="especial-item">
+                    <div class="especial-icono">📅</div>
+                    <div class="especial-texto">Invitaciones y recordatorios</div>
+                </div>
+                <div class="especial-item">
+                    <div class="especial-icono">📔</div>
+                    <div class="especial-texto">Scrapbooking y álbumes de fotos</div>
+                </div>
+                <div class="especial-item">
+                    <div class="especial-icono">📝</div>
+                    <div class="especial-texto">Planners, cuadernos y stickers decorativos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTE DIY Y RECICLAJE -->
+        <div class="seccion-diy">
+            <h4 class="especial-titulo">Arte DIY y reciclaje</h4>
+            <div class="diy-grid">
+                <div class="diy-item">Reutilización de materiales (botellas, madera, ropa)</div>
+                <div class="diy-item">Manualidades temáticas (Navidad, Halloween, etc.)</div>
+                <div class="diy-item">Proyectos con resina y acrílico</div>
+                <div class="diy-item">Y MÁS!!</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <nav class="footer-menu">
+            <a href="NUESTROS TRABAJOS.html" class="footer-item">Nuestros Trabajos</a>
+            <a href="ACERCA DE NOSOTROS.html" class="footer-item">Acerca de Nosotros</a>
+            <a href="CONTACTO.html" class="footer-item">Contactanos</a>
+        </nav>
+        <div class="copyright">
+            © 2025 Abigayd. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="contenedor-brillos" id="contenedorBrillos"></div>
+
+    <script>
+        function crearBrillos() {
+            const contenedor = document.getElementById('contenedorBrillos');
+            contenedor.innerHTML = '';
+            
+            for (let i = 0; i < 12; i++) {
+                const brillo = document.createElement('div');
+                brillo.className = 'brillo';
+                brillo.style.left = Math.random() * 100 + '%';
+                brillo.style.bottom = Math.random() * 100 + 'px';
+                brillo.style.animationDelay = Math.random() * 4 + 's';
+                contenedor.appendChild(brillo);
+            }
+        }
+
+        crearBrillos();
+        setInterval(crearBrillos, 4000);
+    </script>
+</body>
+</html>

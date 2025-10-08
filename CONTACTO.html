@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCrafts - Contacto</title>
+    
+    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
+    
+    <style>
+        /* ESTILOS BASE (MANTENIENDO TU CÓDIGO) */
+        body {
+            background: #F2E0E2;
+            padding: 25px;
+            font-family: "hagrid", sans-serif;
+            margin: 0;
+        }
+
+        .neulis-cursive { font-family: "neulis-cursive", sans-serif; }
+        .neulis-sans { font-family: "neulis-sans", sans-serif; }
+        .hagrid { font-family: "hagrid", sans-serif; }
+
+        /* HEADER Y MENÚ */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .menu-principal {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 5px 0;
+            margin: 20px 0;
+        }
+
+        .menu-item {
+            font-family: "hagrid", sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover {
+           color: #ff6b9d;
+        }
+
+        /* SECCIÓN CONTACTO */
+        .seccion-contacto {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-contacto {
+            text-align: center;
+            font-family: "neulis-cursive", sans-serif;
+            color: #292728;
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .info-contacto {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .nombre-contacto {
+            font-family: "neulis-cursive", sans-serif;
+            color: #8885B2;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .detalle-contacto {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 18px;
+            color: #292728;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .redes-sociales {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .red-social {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 16px;
+            color: #8885B2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .red-social:hover {
+            color: #ff6b9d;
+        }
+
+        /* SECCIÓN "ESTOS TRABAJOS TE PUEDEN INTERESAR" */
+        .seccion-interes {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .titulo-interes {
+            font-family: "neulis-cursive", sans-serif;
+            color: #292728;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .grid-interes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .interes-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .interes-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .interes-categoria {
+            font-family: "neulis-cursive", sans-serif;
+            color: #8885B2;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .interes-titulo {
+            font-family: "hagrid", sans-serif;
+            color: #292728;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .interes-descripcion {
+            font-family: "neulis-sans", sans-serif;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .btn-interes {
+            background: #8885B2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-family: "hagrid", sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-interes:hover {
+            background: #ff6b9d;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 20px;
+            border-top: 2px solid #8885B2;
+        }
+
+        .footer-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item {
+            font-family: "hagrid", sans-serif;
+            font-size: 12px;
+            color: #292728;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-item:hover {
+            color: #ff6b9d;
+        }
+
+        .copyright {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 12px;
+            color: #8885B2;
+        }
+
+        /* BRILLOS */
+        .contenedor-brillos {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .brillo {
+            position: absolute;
+            bottom: 0;
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #b56e9f;
+            animation: sparkleFromBottom 4s linear infinite;
+        }
+
+        @keyframes sparkleFromBottom {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid-interes {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu-principal {
+                gap: 20px;
+            }
+
+            .redes-sociales {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .info-contacto {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MENU DE ARRIBA -->
+    <div class="header">
+        <h1 class="neulis-cursive" style="color:#8885B2;">MyCrafts</h1>
+        
+        <nav class="menu-principal">
+            <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
+            <a href="ACERCA DE NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
+            <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
+        </nav>
+    </div>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section class="seccion-contacto">
+        <h2 class="titulo-contacto">CONTACTANOS</h2>
+        
+        <div class="info-contacto">
+            <div class="nombre-contacto">Magaly Delgado</div>
+            
+            <div class="detalle-contacto">
+                <span>📱</span>
+                <a href="https://wa.me/528332453387" class="numero" style="color: #ff6b9d;">+52 833 245 3387</a>
+            </div>
+            
+            <div class="redes-sociales">
+                <a href="https://www.facebook.com/share/1Git6MPxUT/" class="red-social">Facebook: MyCrafts</a>
+                <a href="https://www.instagram.com/mycrafts.mds?igsh=NDNqdDRoNTlrbmxl" class="red-social">Instagram: mycrafts.mds</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN "ESTOS TRABAJOS TE PUEDEN INTERESAR" -->
+    <section class="seccion-interes">
+        <h2 class="titulo-interes">ESTOS TRABAJOS TE PUEDEN INTERESAR</h2>
+        
+        <div class="grid-interes">
+            <!-- MAQUETAS -->
+            <div class="interes-card">
+                <div class="interes-categoria">MAQUETAS</div>
+                <div class="interes-titulo">MAQUETAS PERSONALIZADAS A TU PRESUPUESTO</div>
+                <button class="btn-interes">COTIZA AQUI</button>
+            </div>
+
+            <!-- EVENTOS -->
+            <div class="interes-card">
+                <div class="interes-categoria">EVENTOS</div>
+                <div class="interes-titulo">PIDE TUS CENTRO DE MESA, ADORNOS Y MÁS</div>
+                <button class="btn-interes">COTIZA AQUI</button>
+            </div>
+
+            <!-- VINIL PERSONALIZADO -->
+            <div class="interes-card">
+                <div class="interes-categoria">VINIL PERSONALIZADO</div>
+                <div class="interes-titulo">MARCIA LO QUE GUSTES CON NUESTROS VINILES PERSONALIZADOS</div>
+                <button class="btn-interes">COTIZA AQUI</button>
+            </div>
+
+            <!-- SUBLIMACION -->
+            <div class="interes-card">
+                <div class="interes-categoria">SUBLIMACION</div>
+                <div class="interes-titulo">PLAYERAS, BOLSAS, MOCHILAS, DE TODO A TU GUSTO</div>
+                <button class="btn-interes">COTIZA AQUI</button>
+            </div>
+
+            <!-- ETIQUETAS -->
+            <div class="interes-card">
+                <div class="interes-categoria">ETIQUETAS</div>
+                <div class="interes-titulo">PIDE TUS ETIQUETAS PERSONALIZADAS PARA CUADERNOS, ETIQUETARIO Y MÁS!</div>
+                <button class="btn-interes">COTIZA AQUI</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <nav class="footer-menu">
+            <a href="NUESTROS TRABAJOS.html" class="footer-item">Nuestros Trabajos</a>
+            <a href="ACERCA DE NOSOTROS.html" class="footer-item">Acerca de Nosotros</a>
+            <a href="CONTACTO.html" class="footer-item">Contactanos</a>
+        </nav>
+        <div class="copyright">
+            © 2025 Abigayd. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="contenedor-brillos" id="contenedorBrillos"></div>
+
+    <script>
+        function crearBrillos() {
+            const contenedor = document.getElementById('contenedorBrillos');
+            contenedor.innerHTML = '';
+            
+            for (let i = 0; i < 12; i++) {
+                const brillo = document.createElement('div');
+                brillo.className = 'brillo';
+                brillo.style.left = Math.random() * 100 + '%';
+                brillo.style.bottom = Math.random() * 100 + 'px';
+                brillo.style.animationDelay = Math.random() * 4 + 's';
+                contenedor.appendChild(brillo);
+            }
+        }
+
+        crearBrillos();
+        setInterval(crearBrillos, 4000);
+    </script>
+</body>
+</html>
