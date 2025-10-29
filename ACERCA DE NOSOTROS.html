@@ -49,6 +49,84 @@
            color: #ff6b9d;
         }
 
+        /* CARRUSEL */
+        .carrusel-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .carrusel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carrusel-slide {
+            min-width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carrusel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .carrusel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carrusel-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        .carrusel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #8885B2;
+            transition: all 0.3s ease;
+        }
+
+        .carrusel-nav:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff6b9d;
+        }
+
+        .carrusel-prev {
+            left: 15px;
+        }
+
+        .carrusel-next {
+            right: 15px;
+        }
+
         /* SECCIÓN ACERCA DE NOSOTROS */
         .seccion-nosotros {
             max-width: 1000px;
@@ -287,6 +365,22 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .carrusel-slide {
+                height: 300px;
+            }
+            
+            .carrusel-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carrusel-slide {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -307,6 +401,24 @@
         
         <!-- HISTORIA -->
         <h2 class="titulo-principal">ACERCA DE NOSOTROS</h2>
+        
+        <!-- CARRUSEL DE IMÁGENES -->
+        <div class="carrusel-container">
+            <div class="carrusel">
+                <div class="carrusel-slide" style="background-image: url('IMG\ \011.jpg'));"></div>
+                <div class="carrusel-slide" style="background-image: url('IMG\ \(22\).jpg');"></div>
+                <div class="carrusel-slide" style="background-image: url('IMG\ \(17\).jpg');"></div>
+            </div>
+            
+            <button class="carrusel-nav carrusel-prev">❮</button>
+            <button class="carrusel-nav carrusel-next">❯</button>
+            
+            <div class="carrusel-controls">
+                <div class="carrusel-dot active" data-index="0"></div>
+                <div class="carrusel-dot" data-index="1"></div>
+                <div class="carrusel-dot" data-index="2"></div>
+            </div>
+        </div>
         
         <div class="historia">
             <p>
@@ -426,6 +538,90 @@
     <div class="contenedor-brillos" id="contenedorBrillos"></div>
 
     <script>
+        // CARRUSEL
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrusel = document.querySelector('.carrusel');
+            const slides = document.querySelectorAll('.carrusel-slide');
+            const dots = document.querySelectorAll('.carrusel-dot');
+            const prevBtn = document.querySelector('.carrusel-prev');
+            const nextBtn = document.querySelector('.carrusel-next');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let autoSlideInterval;
+            
+            // Función para actualizar el carrusel
+            function updateCarrusel() {
+                carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Actualizar dots activos
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Función para ir a un slide específico
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarrusel();
+                resetAutoSlide();
+            }
+            
+            // Función para siguiente slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarrusel();
+            }
+            
+            // Función para slide anterior
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarrusel();
+            }
+            
+            // Función para iniciar auto slide
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Función para resetear auto slide
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    goToSlide(index);
+                });
+            });
+            
+            // Iniciar auto slide
+            startAutoSlide();
+            
+            // Pausar auto slide al hacer hover
+            carrusel.parentElement.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            carrusel.parentElement.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+        });
+
+        // BRILLOS
         function crearBrillos() {
             const contenedor = document.getElementById('contenedorBrillos');
             contenedor.innerHTML = '';
