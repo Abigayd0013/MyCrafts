@@ -118,6 +118,7 @@
             font-size: 18px;
         }
 
+        /* CORRECCIÓN PRINCIPAL: Mejor centrado del texto */
         .producto-overlay {
             position: absolute;
             top: 0;
@@ -131,8 +132,9 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            padding: 20px;
+            padding: 30px; /* Aumenté el padding para mejor espaciado */
             text-align: center;
+            box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
         }
 
         .producto-card:hover .producto-overlay {
@@ -143,9 +145,11 @@
             font-family: "neulis-cursive", sans-serif;
             font-size: 28px;
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 15px; /* Aumenté el margen inferior */
             font-weight: bold;
             text-transform: uppercase;
+            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            text-align: center; /* Centra el texto dentro del contenedor */
         }
 
         .producto-descripcion {
@@ -153,7 +157,10 @@
             font-size: 16px;
             color: white;
             line-height: 1.4;
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Aumenté el margen inferior */
+            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            text-align: center; /* Centra el texto dentro del contenedor */
+            max-width: 90%; /* Limita el ancho para mejor legibilidad */
         }
 
         .btn-cotizar {
@@ -168,6 +175,7 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 10px; /* Añadí margen superior para separar del texto */
         }
 
         .btn-cotizar:hover {
@@ -285,6 +293,21 @@
             .titulo-manualidades {
                 font-size: 28px;
                 margin: 30px 0 15px 0;
+            }
+            
+            /* Ajustes para móviles en el texto de las tarjetas */
+            .producto-overlay {
+                padding: 20px; /* Reducir padding en móviles */
+            }
+            
+            .producto-nombre {
+                font-size: 22px; /* Reducir tamaño de fuente en móviles */
+                margin-bottom: 10px;
+            }
+            
+            .producto-descripcion {
+                font-size: 14px; /* Reducir tamaño de fuente en móviles */
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -419,4 +442,7 @@
         setInterval(crearBrillos, 4000);
     </script>
 </body>
+</html>
+</body>
+
 </html>
