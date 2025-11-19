@@ -49,6 +49,96 @@
            color: #ff6b9d;
         }
 
+        /* INTRODUCCIÓN MÁGICA */
+        .introduccion-magica {
+            text-align: center;
+            margin: 40px 0 30px 0;
+            padding: 0 20px;
+        }
+
+        .titulo-introduccion {
+            font-family: "neulis-cursive", sans-serif;
+            font-size: 2.8rem;
+            color: #8885B2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .titulo-introduccion::before {
+            content: "✨";
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            animation: twinkle 2s infinite;
+        }
+
+        .titulo-introduccion::after {
+            content: "✨";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            animation: twinkle 2s infinite 0.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+
+        .texto-introduccion {
+            font-family: "neulis-sans", sans-serif;
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,246,255,0.9) 100%);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(136, 133, 178, 0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            position: relative;
+        }
+
+        .texto-introduccion::before {
+            content: "🪄";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            background: #F2E0E2;
+            padding: 0 15px;
+        }
+
+        .hadas-flotantes {
+            position: relative;
+            height: 60px;
+            margin: 20px 0;
+        }
+
+        .hada {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hada:nth-child(1) { left: 15%; animation-delay: 0s; }
+        .hada:nth-child(2) { left: 35%; animation-delay: 1s; }
+        .hada:nth-child(3) { left: 55%; animation-delay: 2s; }
+        .hada:nth-child(4) { left: 75%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
         /* TÍTULO MANUALIDADES (AGREGANDO ESTO) */
         .titulo-manualidades {
             text-align: center;
@@ -118,8 +208,6 @@
             font-size: 18px;
             position: relative;
         }
-
-        /* QUITÉ LA CLASE .nombre-archivo */
 
         /* CORRECCIÓN PRINCIPAL: Mejor centrado del texto */
         .producto-overlay {
@@ -325,6 +413,29 @@
                 padding: 8px 16px;
                 font-size: 11px;
             }
+
+            /* Ajustes responsive para la introducción */
+            .titulo-introduccion {
+                font-size: 2rem;
+            }
+
+            .titulo-introduccion::before,
+            .titulo-introduccion::after {
+                display: none;
+            }
+
+            .texto-introduccion {
+                font-size: 1rem;
+                padding: 20px 15px;
+            }
+
+            .hadas-flotantes {
+                height: 40px;
+            }
+
+            .hada {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -335,6 +446,15 @@
             
             .producto-nombre {
                 font-size: 18px;
+            }
+
+            .titulo-introduccion {
+                font-size: 1.8rem;
+            }
+
+            .texto-introduccion {
+                font-size: 0.9rem;
+                padding: 15px 10px;
             }
         }
     </style>
@@ -350,6 +470,22 @@
             <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
         </nav>
     </div>
+
+    <!-- INTRODUCCIÓN MÁGICA -->
+    <section class="introduccion-magica">
+        <h2 class="titulo-introduccion">Nuestro Mundo de Creaciones</h2>
+        
+        <div class="hadas-flotantes">
+            <div class="hada">🧚‍♀️</div>
+            <div class="hada">🌟</div>
+            <div class="hada">🧚</div>
+            <div class="hada">✨</div>
+        </div>
+        
+        <div class="texto-introduccion">
+            Donde la magia de las hadas se encuentra con la creatividad humana. Cada pieza que creamos está impregnada de ilusión y cuidado artesanal, transformando simples materiales en tesoros únicos que guardan historias especiales. ¡Bienvenido a nuestro universo encantado de posibilidades!
+        </div>
+    </section>
 
     <!-- TÍTULO MANUALIDADES (AGREGANDO ESTO) -->
     <h2 class="titulo-manualidades">manualidades</h2>
@@ -484,6 +620,7 @@
     </script>
 </body>
 </html>
+
 
 
 
