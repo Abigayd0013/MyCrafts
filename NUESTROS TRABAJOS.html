@@ -116,6 +116,20 @@
             justify-content: center;
             color: white;
             font-size: 18px;
+            position: relative;
+        }
+
+        .nombre-archivo {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family: "neulis-sans", sans-serif;
+            font-size: 12px;
+            backdrop-filter: blur(5px);
         }
 
         /* CORRECCIÓN PRINCIPAL: Mejor centrado del texto */
@@ -132,9 +146,9 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            padding: 30px; /* Aumenté el padding para mejor espaciado */
+            padding: 20px;
             text-align: center;
-            box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+            box-sizing: border-box;
         }
 
         .producto-card:hover .producto-overlay {
@@ -143,44 +157,49 @@
 
         .producto-nombre {
             font-family: "neulis-cursive", sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             color: white;
-            margin-bottom: 15px; /* Aumenté el margen inferior */
+            margin-bottom: 10px;
             font-weight: bold;
             text-transform: uppercase;
-            width: 100%; /* Asegura que ocupe todo el ancho disponible */
-            text-align: center; /* Centra el texto dentro del contenedor */
+            width: 100%;
+            text-align: center;
         }
 
         .producto-descripcion {
             font-family: "neulis-sans", sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
-            line-height: 1.4;
-            margin-bottom: 20px; /* Aumenté el margen inferior */
-            width: 100%; /* Asegura que ocupe todo el ancho disponible */
-            text-align: center; /* Centra el texto dentro del contenedor */
-            max-width: 90%; /* Limita el ancho para mejor legibilidad */
+            line-height: 1.3;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: center;
+            max-width: 90%;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
 
         .btn-cotizar {
             background: white;
             color: #8885B2;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: none;
             border-radius: 25px;
             font-family: "hagrid", sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 10px; /* Añadí margen superior para separar del texto */
+            margin-top: 5px;
         }
 
         .btn-cotizar:hover {
             background: #292728;
             color: white;
+            transform: scale(1.05);
         }
 
         /* ESTILOS ESPECÍFICOS PARA CADA SECCIÓN */
@@ -297,17 +316,39 @@
             
             /* Ajustes para móviles en el texto de las tarjetas */
             .producto-overlay {
-                padding: 20px; /* Reducir padding en móviles */
+                padding: 15px;
             }
             
             .producto-nombre {
-                font-size: 22px; /* Reducir tamaño de fuente en móviles */
-                margin-bottom: 10px;
+                font-size: 20px;
+                margin-bottom: 8px;
             }
             
             .producto-descripcion {
-                font-size: 14px; /* Reducir tamaño de fuente en móviles */
-                margin-bottom: 15px;
+                font-size: 12px;
+                margin-bottom: 10px;
+                -webkit-line-clamp: 2;
+            }
+            
+            .nombre-archivo {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+            
+            .btn-cotizar {
+                padding: 8px 16px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .producto-descripcion {
+                -webkit-line-clamp: 2;
+                font-size: 11px;
+            }
+            
+            .producto-nombre {
+                font-size: 18px;
             }
         }
     </style>
@@ -335,11 +376,11 @@
             <!-- Maquetas -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #8885B2;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">IMG (5).jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Maquetas</div>
-                    <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades en miniatura hasta réplicas exactas de tus lugares favoritos. ¡Cada detalle cuenta para hacer realidad tu visión creativa!</div>
+                    <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades hasta réplicas exactas. Cada detalle cuenta para tu visión creativa.</div>
                     <button class="btn-cotizar">COTIZA AQUÍ</button>
                 </div>
             </div>
@@ -347,11 +388,11 @@
             <!-- Productos de Temporada -->
             <div class="producto-card temporada">
                 <div class="producto-imagen" style="background-color: #56ab91;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">IMG (19).jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Productos de Temporada</div>
-                    <div class="producto-descripcion">¡La magia de cada estación en tus manos! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween, primavera y más. ¡No te quedes sin la decoración más trendy del momento!</div>
+                    <div class="producto-descripcion">¡La magia de cada estación! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween y más. ¡No te quedes sin lo más trendy!</div>
                     <button class="btn-cotizar">VER OFERTAS</button>
                 </div>
             </div>
@@ -362,11 +403,11 @@
             <!-- Decoración -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #ff6b9d;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">IMG (20).jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Decoración para fiestas</div>
-                    <div class="producto-descripcion">¡Transformamos tus celebraciones en eventos inolvidables! 🎉 Desde cumpleaños hasta bodas, creamos la atmósfera perfecta con decoraciones únicas que harán brillar tu fiesta.</div>
+                    <div class="producto-descripcion">¡Celebraciones inolvidables! 🎉 Desde cumpleaños hasta bodas. Creamos la atmósfera perfecta para tu evento especial.</div>
                     <button class="btn-cotizar">COTIZA AQUÍ</button>
                 </div>
             </div>
@@ -374,11 +415,11 @@
             <!-- Cuadernos -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #764ba2;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">015.jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Cuadernos</div>
-                    <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son verdaderas obras de arte. Perfectos para regalar, estudiar o guardar tus recuerdos más preciados con estilo único.</div>
+                    <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son obras de arte. Perfectos para regalar o guardar recuerdos.</div>
                     <button class="btn-cotizar">COTIZA AQUÍ</button>
                 </div>
             </div>
@@ -386,11 +427,11 @@
             <!-- Trabajos Emergencia -->
             <div class="producto-card emergencia">
                 <div class="producto-imagen" style="background-color: #c44569;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">008.jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Trabajos de Emergencia</div>
-                    <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con la misma calidad y cariño que nos caracteriza. ¡Urgencias bienvenidas!</div>
+                    <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con calidad.</div>
                     <button class="btn-cotizar">CONTACTANOS</button>
                 </div>
             </div>
@@ -400,11 +441,11 @@
         <div class="fila fila-3">
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #667eea;">
-                    <!-- Imagen de fondo -->
+                    <div class="nombre-archivo">006.jpg</div>
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Papelería personalizada</div>
-                    <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Desde invitaciones que nadie querrá perderse hasta tarjetas de presentación que dejarán huella. Diseños únicos que reflejan tu esencia.</div>
+                    <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Invitaciones únicas y tarjetas que dejarán huella. Diseños que reflejan tu esencia.</div>
                     <button class="btn-cotizar">COTIZA AQUÍ</button>
                 </div>
             </div>
@@ -443,6 +484,24 @@
 
         crearBrillos();
         setInterval(crearBrillos, 4000);
+
+        // Interacción mejorada para los botones
+        document.querySelectorAll('.btn-cotizar').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Efecto visual al hacer clic
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 150);
+                
+                // Aquí puedes agregar la funcionalidad específica de cada botón
+                const productName = this.closest('.producto-overlay').querySelector('.producto-nombre').textContent;
+                alert(`¡Genial! Estás interesado en: ${productName}\n\nPronto nos pondremos en contacto contigo para tu cotización.`);
+            });
+        });
     </script>
 </body>
 </html>
