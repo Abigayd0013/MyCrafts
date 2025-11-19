@@ -119,18 +119,7 @@
             position: relative;
         }
 
-        .nombre-archivo {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-family: "neulis-sans", sans-serif;
-            font-size: 12px;
-            backdrop-filter: blur(5px);
-        }
+        /* QUITÉ LA CLASE .nombre-archivo */
 
         /* CORRECCIÓN PRINCIPAL: Mejor centrado del texto */
         .producto-overlay {
@@ -332,11 +321,6 @@
                 -webkit-line-clamp: 2;
             }
             
-            .nombre-archivo {
-                font-size: 10px;
-                padding: 3px 8px;
-            }
-            
             .btn-cotizar {
                 padding: 8px 16px;
                 font-size: 11px;
@@ -378,7 +362,7 @@
             <!-- Maquetas -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #8885B2;">
-                    <div class="nombre-archivo">IMG (5).jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Maquetas</div>
@@ -390,7 +374,7 @@
             <!-- Productos de Temporada -->
             <div class="producto-card temporada">
                 <div class="producto-imagen" style="background-color: #56ab91;">
-                    <div class="nombre-archivo">IMG (19).jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Productos de Temporada</div>
@@ -405,7 +389,7 @@
             <!-- Decoración -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #ff6b9d;">
-                    <div class="nombre-archivo">IMG (20).jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Decoración para fiestas</div>
@@ -417,7 +401,7 @@
             <!-- Cuadernos -->
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #764ba2;">
-                    <div class="nombre-archivo">015.jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Cuadernos</div>
@@ -429,7 +413,7 @@
             <!-- Trabajos Emergencia -->
             <div class="producto-card emergencia">
                 <div class="producto-imagen" style="background-color: #c44569;">
-                    <div class="nombre-archivo">008.jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Trabajos de Emergencia</div>
@@ -443,7 +427,7 @@
         <div class="fila fila-3">
             <div class="producto-card">
                 <div class="producto-imagen" style="background-color: #667eea;">
-                    <div class="nombre-archivo">006.jpg</div>
+                    <!-- Solo la imagen, sin nombre de archivo -->
                 </div>
                 <div class="producto-overlay">
                     <div class="producto-nombre">Papelería personalizada</div>
@@ -495,13 +479,11 @@
                 setTimeout(() => {
                     this.style.transform = 'scale(1.05)';
                 }, 150);
-                
-                // El enlace de WhatsApp ya está configurado en el HTML
-                // No necesitamos prevenir el comportamiento por defecto
             });
         });
     </script>
 </body>
 </html>
+
 
 
