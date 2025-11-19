@@ -194,6 +194,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-cotizar:hover {
@@ -381,7 +383,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Maquetas</div>
                     <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades hasta réplicas exactas. Cada detalle cuenta para tu visión creativa.</div>
-                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20solicitar%20una%20cotización%20para%20maquetas%20personalizadas.%20¿Podrían%20ayudarme?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
                 </div>
             </div>
 
@@ -393,7 +395,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Productos de Temporada</div>
                     <div class="producto-descripcion">¡La magia de cada estación! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween y más. ¡No te quedes sin lo más trendy!</div>
-                    <button class="btn-cotizar">VER OFERTAS</button>
+                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20conocer%20las%20ofertas%20y%20productos%20de%20temporada%20que%20tienen%20disponibles.%20¿Podrían%20enviarme%20más%20información?" class="btn-cotizar" target="_blank">VER OFERTAS</a>
                 </div>
             </div>
         </div>
@@ -408,7 +410,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Decoración para fiestas</div>
                     <div class="producto-descripcion">¡Celebraciones inolvidables! 🎉 Desde cumpleaños hasta bodas. Creamos la atmósfera perfecta para tu evento especial.</div>
-                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                    <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20servicios%20de%20decoración%20para%20fiestas.%20¿Podrían%20cotizarme%20para%20mi%20evento?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
                 </div>
             </div>
 
@@ -420,7 +422,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Cuadernos</div>
                     <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son obras de arte. Perfectos para regalar o guardar recuerdos.</div>
-                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20gustaría%20solicitar%20una%20cotización%20para%20cuadernos%20personalizados.%20¿Podrían%20ayudarme%20con%20los%20precios%20y%20opciones?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
                 </div>
             </div>
 
@@ -432,7 +434,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Trabajos de Emergencia</div>
                     <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con calidad.</div>
-                    <button class="btn-cotizar">CONTACTANOS</button>
+                    <a href="https://wa.me/528332453387?text=¡URGENTE!%20Necesito%20un%20trabajo%20de%20emergencia%20y%20me%20gustaría%20saber%20si%20pueden%20ayudarme%20lo%20más%20pronto%20posible." class="btn-cotizar" target="_blank">CONTACTANOS</a>
                 </div>
             </div>
         </div>
@@ -446,7 +448,7 @@
                 <div class="producto-overlay">
                     <div class="producto-nombre">Papelería personalizada</div>
                     <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Invitaciones únicas y tarjetas que dejarán huella. Diseños que reflejan tu esencia.</div>
-                    <button class="btn-cotizar">COTIZA AQUÍ</button>
+                    <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20papelería%20personalizada%20y%20me%20gustaría%20saber%20más%20sobre%20precios%20y%20opciones%20de%20diseño." class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
                 </div>
             </div>
         </div>
@@ -485,24 +487,21 @@
         crearBrillos();
         setInterval(crearBrillos, 4000);
 
-        // Interacción mejorada para los botones
-        document.querySelectorAll('.btn-cotizar').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
+        // Efecto de clic en los botones de WhatsApp
+        document.querySelectorAll('.btn-cotizar').forEach(boton => {
+            boton.addEventListener('click', function(e) {
                 // Efecto visual al hacer clic
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = 'scale(1.05)';
                 }, 150);
                 
-                // Aquí puedes agregar la funcionalidad específica de cada botón
-                const productName = this.closest('.producto-overlay').querySelector('.producto-nombre').textContent;
-                alert(`¡Genial! Estás interesado en: ${productName}\n\nPronto nos pondremos en contacto contigo para tu cotización.`);
+                // El enlace de WhatsApp ya está configurado en el HTML
+                // No necesitamos prevenir el comportamiento por defecto
             });
         });
     </script>
 </body>
 </html>
+
 
