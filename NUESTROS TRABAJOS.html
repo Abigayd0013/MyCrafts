@@ -139,7 +139,13 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* TÍTULO MANUALIDADES (AGREGANDO ESTO) */
+        /* CONTENIDO PRINCIPAL */
+        .contenido-principal {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .titulo-manualidades {
             text-align: center;
             font-family: "neulis-cursive", sans-serif;
@@ -151,9 +157,7 @@
 
         /* ESTRUCTURA DE 3 FILAS COMO EL PDF */
         .contenedor-filas {
-            max-width: 1200px;
             margin: 0 auto 40px;
-            padding: 0 20px;
         }
 
         .fila {
@@ -207,31 +211,6 @@
             color: white;
             font-size: 18px;
             position: relative;
-        }
-
-        /* Imágenes específicas para cada producto */
-        .maquetas-img {
-            background-image: url('IMG (5).jpg');
-        }
-
-        .temporada-img {
-            background-image: url('IMG (19).jpg');
-        }
-
-        .decoracion-img {
-            background-image: url('IMG (20).jpg');
-        }
-
-        .cuadernos-img {
-            background-image: url('015.jpg');
-        }
-
-        .emergencia-img {
-            background-image: url('008.jpg');
-        }
-
-        .papeleria-img {
-            background-image: url('006.jpg');
         }
 
         /* Placeholder si las imágenes no cargan */
@@ -316,6 +295,15 @@
             background: #292728;
             color: white;
             transform: scale(1.05);
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA CADA SECCIÓN */
+        .emergencia {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        }
+
+        .temporada {
+            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
         }
 
         /* FOOTER */
@@ -515,92 +503,81 @@
         </div>
     </section>
 
-    <!-- TÍTULO MANUALIDADES (AGREGANDO ESTO) -->
-    <h2 class="titulo-manualidades">manualidades</h2>
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenido-principal">
+        <h2 class="titulo-manualidades">manualidades</h2>
 
-    <!-- CONTENIDO PRINCIPAL - 3 FILAS COMO EL PDF -->
-    <div class="contenedor-filas">
-        
-        <!-- FILA 1: Maquetas | Productos de Temporada -->
-        <div class="fila fila-1">
-            <!-- Maquetas -->
-            <div class="producto-card">
-                <div class="producto-imagen maquetas-img">
-                    <!-- Imagen de maquetas -->
+        <!-- CONTENEDOR DE FILAS -->
+        <div class="contenedor-filas">
+            
+            <!-- FILA 1: Maquetas | Productos de Temporada -->
+            <div class="fila fila-1">
+                <!-- Maquetas -->
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('IMG (5).jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Maquetas</div>
+                        <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades hasta réplicas exactas. Cada detalle cuenta para tu visión creativa.</div>
+                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20solicitar%20una%20cotización%20para%20maquetas%20personalizadas.%20¿Podrían%20ayudarme?" class="btn-cotizar">COTIZA AQUÍ</a>
+                    </div>
                 </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Maquetas</div>
-                    <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades hasta réplicas exactas. Cada detalle cuenta para tu visión creativa.</div>
-                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20solicitar%20una%20cotización%20para%20maquetas%20personalizadas.%20¿Podrían%20ayudarme?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
+
+                <!-- Productos de Temporada -->
+                <div class="producto-card temporada">
+                    <div class="producto-imagen" style="background-image: url('IMG (19).jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Productos de Temporada</div>
+                        <div class="producto-descripcion">¡La magia de cada estación! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween y más. ¡No te quedes sin lo más trendy!</div>
+                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20conocer%20las%20ofertas%20y%20productos%20de%20temporada%20que%20tienen%20disponibles.%20¿Podrían%20enviarme%20más%20información?" class="btn-cotizar">VER OFERTAS</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Productos de Temporada -->
-            <div class="producto-card">
-                <div class="producto-imagen temporada-img">
-                    <!-- Imagen de productos de temporada -->
+            <!-- FILA 2: Decoración | Cuadernos | Trabajos Emergencia -->
+            <div class="fila fila-2">
+                <!-- Decoración -->
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('IMG (20).jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Decoración para fiestas</div>
+                        <div class="producto-descripcion">¡Celebraciones inolvidables! 🎉 Desde cumpleaños hasta bodas. Creamos la atmósfera perfecta para tu evento especial.</div>
+                        <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20servicios%20de%20decoración%20para%20fiestas.%20¿Podrían%20cotizarme%20para%20mi%20evento?" class="btn-cotizar">COTIZA AQUÍ</a>
+                    </div>
                 </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Productos de Temporada</div>
-                    <div class="producto-descripcion">¡La magia de cada estación! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween y más. ¡No te quedes sin lo más trendy!</div>
-                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20conocer%20las%20ofertas%20y%20productos%20de%20temporada%20que%20tienen%20disponibles.%20¿Podrían%20enviarme%20más%20información?" class="btn-cotizar" target="_blank">VER OFERTAS</a>
-                </div>
-            </div>
-        </div>
 
-        <!-- FILA 2: Decoración | Cuadernos | Trabajos Emergencia -->
-        <div class="fila fila-2">
-            <!-- Decoración -->
-            <div class="producto-card">
-                <div class="producto-imagen decoracion-img">
-                    <!-- Imagen de decoración -->
+                <!-- Cuadernos -->
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('015.jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Cuadernos</div>
+                        <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son obras de arte. Perfectos para regalar o guardar recuerdos.</div>
+                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20gustaría%20solicitar%20una%20cotización%20para%20cuadernos%20personalizados.%20¿Podrían%20ayudarme%20con%20los%20precios%20y%20opciones?" class="btn-cotizar">COTIZA AQUÍ</a>
+                    </div>
                 </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Decoración para fiestas</div>
-                    <div class="producto-descripcion">¡Celebraciones inolvidables! 🎉 Desde cumpleaños hasta bodas. Creamos la atmósfera perfecta para tu evento especial.</div>
-                    <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20servicios%20de%20decoración%20para%20fiestas.%20¿Podrían%20cotizarme%20para%20mi%20evento?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
-                </div>
-            </div>
 
-            <!-- Cuadernos -->
-            <div class="producto-card">
-                <div class="producto-imagen cuadernos-img">
-                    <!-- Imagen de cuadernos -->
-                </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Cuadernos</div>
-                    <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son obras de arte. Perfectos para regalar o guardar recuerdos.</div>
-                    <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20gustaría%20solicitar%20una%20cotización%20para%20cuadernos%20personalizados.%20¿Podrían%20ayudarme%20con%20los%20precios%20y%20opciones?" class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
+                <!-- Trabajos Emergencia -->
+                <div class="producto-card emergencia">
+                    <div class="producto-imagen" style="background-image: url('008.jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Trabajos de Emergencia</div>
+                        <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con calidad.</div>
+                        <a href="https://wa.me/528332453387?text=¡URGENTE!%20Necesito%20un%20trabajo%20de%20emergencia%20y%20me%20gustaría%20saber%20si%20pueden%20ayudarme%20lo%20más%20pronto%20posible." class="btn-cotizar">CONTACTANOS</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Trabajos Emergencia -->
-            <div class="producto-card">
-                <div class="producto-imagen emergencia-img">
-                    <!-- Imagen de trabajos de emergencia -->
-                </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Trabajos de Emergencia</div>
-                    <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con calidad.</div>
-                    <a href="https://wa.me/528332453387?text=¡URGENTE!%20Necesito%20un%20trabajo%20de%20emergencia%20y%20me%20gustaría%20saber%20si%20pueden%20ayudarme%20lo%20más%20pronto%20posible." class="btn-cotizar" target="_blank">CONTACTANOS</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- FILA 3: Papelería personalizada -->
-        <div class="fila fila-3">
-            <div class="producto-card">
-                <div class="producto-imagen papeleria-img">
-                    <!-- Imagen de papelería personalizada -->
-                </div>
-                <div class="producto-overlay">
-                    <div class="producto-nombre">Papelería personalizada</div>
-                    <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Invitaciones únicas y tarjetas que dejarán huella. Diseños que reflejan tu esencia.</div>
-                    <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20papelería%20personalizada%20y%20me%20gustaría%20saber%20más%20sobre%20precios%20y%20opciones%20de%20diseño." class="btn-cotizar" target="_blank">COTIZA AQUÍ</a>
+            <!-- FILA 3: Papelería personalizada -->
+            <div class="fila fila-3">
+                <div class="producto-card">
+                    <div class="producto-imagen" style="background-image: url('006.jpg');"></div>
+                    <div class="producto-overlay">
+                        <div class="producto-nombre">Papelería personalizada</div>
+                        <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Invitaciones únicas y tarjetas que dejarán huella. Diseños que reflejan tu esencia.</div>
+                        <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20papelería%20personalizada%20y%20me%20gustaría%20saber%20más%20sobre%20precios%20y%20opciones%20de%20diseño." class="btn-cotizar">COTIZA AQUÍ</a>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- FOOTER -->
@@ -648,3 +625,4 @@
     </script>
 </body>
 </html>
+
