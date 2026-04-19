@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
     
     <style>
-        /* ESTILOS BASE (MANTENIENDO TU CÓDIGO) */
+        /* ESTILOS BASE */
         body {
-            background: #F2E0E2;
+            background: #f99aaa;  /* NUEVO COLOR DE FONDO */
             padding: 25px;
             font-family: "hagrid", sans-serif;
             margin: 0;
@@ -20,7 +20,7 @@
         .neulis-sans { font-family: "neulis-sans", sans-serif; }
         .hagrid { font-family: "hagrid", sans-serif; }
 
-        /* HEADER Y MENÚ (COMPLETO COMO EL ORIGINAL) */
+        /* HEADER Y MENÚ */
         .header {
             text-align: center;
             padding: 20px 0;
@@ -59,7 +59,7 @@
         .titulo-introduccion {
             font-family: "neulis-cursive", sans-serif;
             font-size: 2.8rem;
-            color: #8885B2;
+            color: #292728;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             position: relative;
@@ -94,11 +94,11 @@
         .texto-introduccion {
             font-family: "neulis-sans", sans-serif;
             font-size: 1.2rem;
-            color: #666;
+            color: #444;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
-            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,246,255,0.9) 100%);
+            background: rgba(255, 255, 255, 0.7);
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(136, 133, 178, 0.2);
@@ -113,7 +113,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 1.8rem;
-            background: #F2E0E2;
+            background: #f99aaa;
             padding: 0 15px;
         }
 
@@ -155,7 +155,7 @@
             text-transform: lowercase;
         }
 
-        /* ESTRUCTURA DE 3 FILAS COMO EL PDF */
+        /* ESTRUCTURA DE 3 FILAS */
         .contenedor-filas {
             margin: 0 auto 40px;
         }
@@ -166,19 +166,16 @@
             margin-bottom: 30px;
         }
 
-        /* FILA 1: 2 columnas (Maquetas | Productos Temporada) */
         .fila-1 {
             grid-template-columns: 2fr 1fr;
             height: 300px;
         }
 
-        /* FILA 2: 3 columnas iguales */
         .fila-2 {
             grid-template-columns: 1fr 1fr 1fr;
             height: 250px;
         }
 
-        /* FILA 3: 1 columna centrada */
         .fila-3 {
             grid-template-columns: 1fr;
             height: 200px;
@@ -186,7 +183,6 @@
             margin: 0 auto;
         }
 
-        /* TARJETAS DE PRODUCTO */
         .producto-card {
             position: relative;
             border-radius: 15px;
@@ -213,7 +209,6 @@
             position: relative;
         }
 
-        /* Placeholder si las imágenes no cargan */
         .producto-imagen::before {
             content: "";
             position: absolute;
@@ -225,7 +220,6 @@
             z-index: -1;
         }
 
-        /* CORRECCIÓN PRINCIPAL: Mejor centrado del texto */
         .producto-overlay {
             position: absolute;
             top: 0;
@@ -297,7 +291,6 @@
             transform: scale(1.05);
         }
 
-        /* ESTILOS ESPECÍFICOS PARA CADA SECCIÓN */
         .emergencia {
             background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
         }
@@ -340,7 +333,7 @@
             color: #8885B2;
         }
 
-        /* BRILLOS (MANTENIENDO TU CÓDIGO) */
+        /* BRILLOS */
         .contenedor-brillos {
             position: fixed;
             bottom: 0;
@@ -409,7 +402,6 @@
                 margin: 30px 0 15px 0;
             }
             
-            /* Ajustes para móviles en el texto de las tarjetas */
             .producto-overlay {
                 padding: 15px;
             }
@@ -430,7 +422,6 @@
                 font-size: 11px;
             }
 
-            /* Ajustes responsive para la introducción */
             .titulo-introduccion {
                 font-size: 2rem;
             }
@@ -507,12 +498,10 @@
     <div class="contenido-principal">
         <h2 class="titulo-manualidades">manualidades</h2>
 
-        <!-- CONTENEDOR DE FILAS -->
         <div class="contenedor-filas">
             
-            <!-- FILA 1: Maquetas | Productos de Temporada -->
+            <!-- FILA 1 -->
             <div class="fila fila-1">
-                <!-- Maquetas -->
                 <div class="producto-card">
                     <div class="producto-imagen" style="background-image: url('IMG (5).jpg');"></div>
                     <div class="producto-overlay">
@@ -522,7 +511,6 @@
                     </div>
                 </div>
 
-                <!-- Productos de Temporada -->
                 <div class="producto-card temporada">
                     <div class="producto-imagen" style="background-image: url('IMG (19).jpg');"></div>
                     <div class="producto-overlay">
@@ -533,9 +521,8 @@
                 </div>
             </div>
 
-            <!-- FILA 2: Decoración | Cuadernos | Trabajos Emergencia -->
+            <!-- FILA 2 -->
             <div class="fila fila-2">
-                <!-- Decoración -->
                 <div class="producto-card">
                     <div class="producto-imagen" style="background-image: url('IMG (20).jpg');"></div>
                     <div class="producto-overlay">
@@ -545,7 +532,6 @@
                     </div>
                 </div>
 
-                <!-- Cuadernos -->
                 <div class="producto-card">
                     <div class="producto-imagen" style="background-image: url('015.jpg');"></div>
                     <div class="producto-overlay">
@@ -555,7 +541,6 @@
                     </div>
                 </div>
 
-                <!-- Trabajos Emergencia -->
                 <div class="producto-card emergencia">
                     <div class="producto-imagen" style="background-image: url('008.jpg');"></div>
                     <div class="producto-overlay">
@@ -566,7 +551,7 @@
                 </div>
             </div>
 
-            <!-- FILA 3: Papelería personalizada -->
+            <!-- FILA 3 -->
             <div class="fila fila-3">
                 <div class="producto-card">
                     <div class="producto-imagen" style="background-image: url('006.jpg');"></div>
@@ -612,10 +597,8 @@
         crearBrillos();
         setInterval(crearBrillos, 4000);
 
-        // Efecto de clic en los botones de WhatsApp
         document.querySelectorAll('.btn-cotizar').forEach(boton => {
             boton.addEventListener('click', function(e) {
-                // Efecto visual al hacer clic
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = 'scale(1.05)';
@@ -625,4 +608,3 @@
     </script>
 </body>
 </html>
-
