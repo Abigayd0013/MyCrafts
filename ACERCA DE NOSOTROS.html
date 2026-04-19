@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
     
     <style>
-        /* ESTILOS BASE (MANTENIENDO TU CÓDIGO) */
+        /* ESTILOS BASE */
         body {
-            background: #F2E0E2;
+            background: #f99aaa;  /* NUEVO COLOR DE FONDO */
             padding: 25px;
             font-family: "hagrid", sans-serif;
             margin: 0;
@@ -143,7 +143,7 @@
         }
 
         .historia {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5);
             padding: 40px;
             border-radius: 20px;
             margin-bottom: 50px;
@@ -219,7 +219,7 @@
 
         /* SECCIÓN SUBLIMACIÓN Y PAPELERÍA */
         .seccion-especial {
-            background: rgba(136, 133, 178, 0.1);
+            background: rgba(255, 255, 255, 0.4);
             padding: 40px;
             border-radius: 20px;
             margin: 40px 0;
@@ -257,7 +257,7 @@
 
         /* SECCIÓN ARTE DIY */
         .seccion-diy {
-            background: rgba(255, 107, 157, 0.1);
+            background: rgba(255, 255, 255, 0.4);
             padding: 40px;
             border-radius: 20px;
             margin: 40px 0;
@@ -391,7 +391,7 @@
         
         <nav class="menu-principal">
             <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
-            <a href="NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
+            <a href="ACERCA DE NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
             <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
         </nav>
     </div>
@@ -550,47 +550,38 @@
             const totalSlides = slides.length;
             let autoSlideInterval;
             
-            // Función para actualizar el carrusel
             function updateCarrusel() {
                 carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Actualizar dots activos
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             }
             
-            // Función para ir a un slide específico
             function goToSlide(index) {
                 currentIndex = index;
                 updateCarrusel();
                 resetAutoSlide();
             }
             
-            // Función para siguiente slide
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % totalSlides;
                 updateCarrusel();
             }
             
-            // Función para slide anterior
             function prevSlide() {
                 currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
                 updateCarrusel();
             }
             
-            // Función para iniciar auto slide
             function startAutoSlide() {
                 autoSlideInterval = setInterval(nextSlide, 5000);
             }
             
-            // Función para resetear auto slide
             function resetAutoSlide() {
                 clearInterval(autoSlideInterval);
                 startAutoSlide();
             }
             
-            // Event listeners
             prevBtn.addEventListener('click', () => {
                 prevSlide();
                 resetAutoSlide();
@@ -608,10 +599,8 @@
                 });
             });
             
-            // Iniciar auto slide
             startAutoSlide();
             
-            // Pausar auto slide al hacer hover
             carrusel.parentElement.addEventListener('mouseenter', () => {
                 clearInterval(autoSlideInterval);
             });
@@ -641,6 +630,3 @@
     </script>
 </body>
 </html>
-
-
-
