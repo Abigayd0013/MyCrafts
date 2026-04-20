@@ -3,608 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyCrafts - Nuestros Trabajos</title>
-    
-    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
-    
+    <title>MyCrafts · Catálogo</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ESTILOS BASE */
-        body {
-            background: #f99aaa;  /* NUEVO COLOR DE FONDO */
-            padding: 25px;
-            font-family: "hagrid", sans-serif;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        .neulis-cursive { font-family: "neulis-cursive", sans-serif; }
-        .neulis-sans { font-family: "neulis-sans", sans-serif; }
-        .hagrid { font-family: "hagrid", sans-serif; }
-
-        /* HEADER Y MENÚ */
-        .header {
+        body {
+            background: radial-gradient(circle at 10% 30%, #FFE4F0, #FBC8E0);
+            font-family: "neulis-sans", sans-serif;
+            color: #2C2C2C;
             text-align: center;
-            padding: 20px 0;
         }
-
-        .menu-principal {
+        .fairy-dust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .dust {
+            position: absolute;
+            background: #FFE9A7;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: sparkle 4s infinite alternate;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 0.9; transform: scale(1.6); }
+        }
+        .site-header {
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(255, 248, 250, 0.7);
+            backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 10;
+        }
+        .logo {
+            font-family: "hagrid", sans-serif;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #B28BB5, #E87DAE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .nav-links {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            padding: 5px 0;
-            margin: 20px 0;
+            gap: 2.2rem;
+            flex-wrap: wrap;
         }
-
-        .menu-item {
-            font-family: "hagrid", sans-serif;
-            font-weight: 600;
-            font-size: 10px;
-            color: #292728;
+        .nav-links a {
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            color: #4A3A44;
+            transition: 0.2s;
         }
-
-        .menu-item:hover {
-           color: #ff6b9d;
-        }
-
-        /* INTRODUCCIÓN MÁGICA */
-        .introduccion-magica {
-            text-align: center;
-            margin: 40px 0 30px 0;
+        .nav-links a:hover { color: #E86F9C; }
+        .catalog {
+            max-width: 1280px;
+            margin: 48px auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 5;
         }
-
-        .titulo-introduccion {
+        .catalog h1 {
             font-family: "neulis-cursive", sans-serif;
-            font-size: 2.8rem;
-            color: #292728;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            display: inline-block;
+            font-size: 2.6rem;
+            margin-bottom: 48px;
         }
-
-        .titulo-introduccion::before {
-            content: "✨";
-            position: absolute;
-            left: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            animation: twinkle 2s infinite;
-        }
-
-        .titulo-introduccion::after {
-            content: "✨";
-            position: absolute;
-            right: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            animation: twinkle 2s infinite 0.5s;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
-            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
-        }
-
-        .texto-introduccion {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 1.2rem;
-            color: #444;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(136, 133, 178, 0.2);
-            border: 2px solid rgba(255,255,255,0.5);
-            position: relative;
-        }
-
-        .texto-introduccion::before {
-            content: "🪄";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.8rem;
-            background: #f99aaa;
-            padding: 0 15px;
-        }
-
-        .hadas-flotantes {
-            position: relative;
-            height: 60px;
-            margin: 20px 0;
-        }
-
-        .hada {
-            position: absolute;
-            font-size: 1.5rem;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hada:nth-child(1) { left: 15%; animation-delay: 0s; }
-        .hada:nth-child(2) { left: 35%; animation-delay: 1s; }
-        .hada:nth-child(3) { left: 55%; animation-delay: 2s; }
-        .hada:nth-child(4) { left: 75%; animation-delay: 3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        /* CONTENIDO PRINCIPAL */
-        .contenido-principal {
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-
-        .titulo-manualidades {
-            text-align: center;
-            font-family: "neulis-cursive", sans-serif;
-            color: #292728;
-            font-size: 36px;
-            margin: 40px 0 20px 0;
-            text-transform: lowercase;
-        }
-
-        /* ESTRUCTURA DE 3 FILAS */
-        .contenedor-filas {
-            margin: 0 auto 40px;
-        }
-
-        .fila {
-            display: grid;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .fila-1 {
-            grid-template-columns: 2fr 1fr;
-            height: 300px;
-        }
-
-        .fila-2 {
-            grid-template-columns: 1fr 1fr 1fr;
-            height: 250px;
-        }
-
-        .fila-3 {
-            grid-template-columns: 1fr;
-            height: 200px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .producto-card {
+        .product-card {
             position: relative;
-            border-radius: 15px;
+            border-radius: 36px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            background: white;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
         }
-
-        .producto-card:hover {
-            transform: translateY(-5px);
+        .product-card:hover {
+            transform: translateY(-8px);
         }
-
-        .producto-imagen {
+        .product-card img {
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            position: relative;
+            object-fit: cover;
         }
-
-        .producto-imagen::before {
-            content: "";
+        .card-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            z-index: -1;
-        }
-
-        .producto-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(255, 107, 157, 0.85), rgba(136, 133, 178, 0.95));
+            inset: 0;
+            background: rgba(71, 51, 66, 0.88);
+            backdrop-filter: blur(6px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 20px;
             text-align: center;
-            box-sizing: border-box;
+            padding: 24px;
+            opacity: 0;
+            transition: 0.3s;
+            color: white;
         }
-
-        .producto-card:hover .producto-overlay {
+        .product-card:hover .card-overlay {
             opacity: 1;
         }
-
-        .producto-nombre {
+        .card-overlay h3 {
             font-family: "neulis-cursive", sans-serif;
-            font-size: 24px;
-            color: white;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
-            width: 100%;
-            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
         }
-
-        .producto-descripcion {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 14px;
-            color: white;
-            line-height: 1.3;
-            margin-bottom: 15px;
-            width: 100%;
-            text-align: center;
-            max-width: 90%;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-
-        .btn-cotizar {
-            background: white;
-            color: #8885B2;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-family: "hagrid", sans-serif;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
+        .btn-small {
+            background: #FFDF8C;
+            color: #2C2C2C;
+            padding: 8px 22px;
+            border-radius: 60px;
             text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
             display: inline-block;
         }
-
-        .btn-cotizar:hover {
-            background: #292728;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .emergencia {
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-        }
-
-        .temporada {
-            background: linear-gradient(135deg, #a8e6cf 0%, #56ab91 100%);
-        }
-
-        /* FOOTER */
-        .footer {
+        .site-footer {
+            background: #2E2530;
+            color: #FADDE8;
             text-align: center;
-            margin-top: 60px;
             padding: 40px 20px;
-            border-top: 2px solid #8885B2;
+            border-radius: 48px 48px 0 0;
+            margin-top: 60px;
+            position: relative;
+            z-index: 5;
         }
-
-        .footer-menu {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer-item {
-            font-family: "hagrid", sans-serif;
-            font-size: 12px;
-            color: #292728;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .footer-item:hover {
-            color: #ff6b9d;
-        }
-
-        .copyright {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 12px;
-            color: #8885B2;
-        }
-
-        /* BRILLOS */
-        .contenedor-brillos {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .brillo {
-            position: absolute;
-            bottom: 0;
-            width: 9px;
-            height: 9px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #b56e9f;
-            animation: sparkleFromBottom 4s linear infinite;
-        }
-
-        @keyframes sparkleFromBottom {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-150px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .fila-1, .fila-2 {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            
-            .fila-1 .producto-card,
-            .fila-2 .producto-card {
-                height: 200px;
-            }
-            
-            .fila-3 .producto-card {
-                height: 150px;
-            }
-
-            .footer-menu {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .menu-principal {
-                gap: 20px;
-            }
-
-            .titulo-manualidades {
-                font-size: 28px;
-                margin: 30px 0 15px 0;
-            }
-            
-            .producto-overlay {
-                padding: 15px;
-            }
-            
-            .producto-nombre {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-            
-            .producto-descripcion {
-                font-size: 12px;
-                margin-bottom: 10px;
-                -webkit-line-clamp: 2;
-            }
-            
-            .btn-cotizar {
-                padding: 8px 16px;
-                font-size: 11px;
-            }
-
-            .titulo-introduccion {
-                font-size: 2rem;
-            }
-
-            .titulo-introduccion::before,
-            .titulo-introduccion::after {
-                display: none;
-            }
-
-            .texto-introduccion {
-                font-size: 1rem;
-                padding: 20px 15px;
-            }
-
-            .hadas-flotantes {
-                height: 40px;
-            }
-
-            .hada {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .producto-descripcion {
-                -webkit-line-clamp: 2;
-                font-size: 11px;
-            }
-            
-            .producto-nombre {
-                font-size: 18px;
-            }
-
-            .titulo-introduccion {
-                font-size: 1.8rem;
-            }
-
-            .texto-introduccion {
-                font-size: 0.9rem;
-                padding: 15px 10px;
-            }
+        @media (max-width: 780px) {
+            .site-header { flex-direction: column; gap: 16px; }
+            .catalog h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- MENU DE ARRIBA -->
-    <div class="header">
-        <h1 class="neulis-cursive" style="color:#8885B2;">MyCrafts</h1>
-        
-        <nav class="menu-principal">
-            <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
-            <a href="ACERCA DE NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
-            <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
-        </nav>
+
+<div class="fairy-dust">
+    <div class="dust" style="top: 15%; left: 10%; animation-duration: 3s;"></div>
+    <div class="dust" style="top: 45%; left: 85%; animation-duration: 2.5s;"></div>
+    <div class="dust" style="top: 70%; left: 20%; animation-duration: 4s;"></div>
+    <div class="dust" style="top: 30%; left: 95%;"></div>
+    <div class="dust" style="top: 88%; left: 60%;"></div>
+</div>
+
+<header class="site-header">
+    <div class="logo" style="font-family: neulis-cursive, sans-serif;">MyCrafts</div>
+    <div class="nav-links">
+        <a href="NUESTROS TRABAJOS.html">Trabajos</a>
+        <a href="ACERCA DE NOSOTROS.html">Acerca de</a>
+        <a href="CONTACTO.html">Contacto</a>
     </div>
+</header>
 
-    <!-- INTRODUCCIÓN MÁGICA -->
-    <section class="introduccion-magica">
-        <h2 class="titulo-introduccion">Nuestro Mundo de Creaciones</h2>
-        
-        <div class="hadas-flotantes">
-            <div class="hada">🧚‍♀️</div>
-            <div class="hada">🌟</div>
-            <div class="hada">🧚</div>
-            <div class="hada">✨</div>
-        </div>
-        
-        <div class="texto-introduccion">
-            Donde la magia de las hadas se encuentra con la creatividad humana. Cada pieza que creamos está impregnada de ilusión y cuidado artesanal, transformando simples materiales en tesoros únicos que guardan historias especiales. ¡Bienvenido a nuestro universo encantado de posibilidades!
-        </div>
-    </section>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="contenido-principal">
-        <h2 class="titulo-manualidades">manualidades</h2>
-
-        <div class="contenedor-filas">
-            
-            <!-- FILA 1 -->
-            <div class="fila fila-1">
-                <div class="producto-card">
-                    <div class="producto-imagen" style="background-image: url('IMG (5).jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Maquetas</div>
-                        <div class="producto-descripcion">¡Construimos tus sueños en 3D! 🏗️ Desde ciudades hasta réplicas exactas. Cada detalle cuenta para tu visión creativa.</div>
-                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20solicitar%20una%20cotización%20para%20maquetas%20personalizadas.%20¿Podrían%20ayudarme?" class="btn-cotizar">COTIZA AQUÍ</a>
-                    </div>
-                </div>
-
-                <div class="producto-card temporada">
-                    <div class="producto-imagen" style="background-image: url('IMG (19).jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Productos de Temporada</div>
-                        <div class="producto-descripcion">¡La magia de cada estación! 🌸🎃🎄✨ Diseños especiales para Navidad, Halloween y más. ¡No te quedes sin lo más trendy!</div>
-                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20interesa%20conocer%20las%20ofertas%20y%20productos%20de%20temporada%20que%20tienen%20disponibles.%20¿Podrían%20enviarme%20más%20información?" class="btn-cotizar">VER OFERTAS</a>
-                    </div>
-                </div>
+<div class="catalog">
+    <h1>✨ Catálogo ✨</h1>
+    <div class="cards-grid">
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\027.png" alt="Maquetas">
+            <div class="card-overlay">
+                <h3>Maquetas 3D</h3>
+                <p>Construimos tus sueños a escala.</p>
+                <a href= "https://wa.me/528332453387?text=Buen%20día,%20me%20gustaría%20cotizar%20una%20maqueta" class="btn-small">Cotizar</a>
             </div>
-
-            <!-- FILA 2 -->
-            <div class="fila fila-2">
-                <div class="producto-card">
-                    <div class="producto-imagen" style="background-image: url('IMG (20).jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Decoración para fiestas</div>
-                        <div class="producto-descripcion">¡Celebraciones inolvidables! 🎉 Desde cumpleaños hasta bodas. Creamos la atmósfera perfecta para tu evento especial.</div>
-                        <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20servicios%20de%20decoración%20para%20fiestas.%20¿Podrían%20cotizarme%20para%20mi%20evento?" class="btn-cotizar">COTIZA AQUÍ</a>
-                    </div>
-                </div>
-
-                <div class="producto-card">
-                    <div class="producto-imagen" style="background-image: url('015.jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Cuadernos</div>
-                        <div class="producto-descripcion">¡Dale vida a tus ideas! 📚✨ Cuadernos personalizados que son obras de arte. Perfectos para regalar o guardar recuerdos.</div>
-                        <a href="https://wa.me/528332453387?text=¡Hola!%20Me%20gustaría%20solicitar%20una%20cotización%20para%20cuadernos%20personalizados.%20¿Podrían%20ayudarme%20con%20los%20precios%20y%20opciones?" class="btn-cotizar">COTIZA AQUÍ</a>
-                    </div>
-                </div>
-
-                <div class="producto-card emergencia">
-                    <div class="producto-imagen" style="background-image: url('008.jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Trabajos de Emergencia</div>
-                        <div class="producto-descripcion">¡SOS creativo! 🚨 ¿Se te olvidó un regalo? ¿Necesitas algo para YA? ¡Nosotros al rescate! Trabajos express con calidad.</div>
-                        <a href="https://wa.me/528332453387?text=¡URGENTE!%20Necesito%20un%20trabajo%20de%20emergencia%20y%20me%20gustaría%20saber%20si%20pueden%20ayudarme%20lo%20más%20pronto%20posible." class="btn-cotizar">CONTACTANOS</a>
-                    </div>
-                </div>
+        </div>
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\IMG (18).jpg" alt="Vinil">
+            <div class="card-overlay">
+                <h3>Vinil personalizado</h3>
+                <p>Playeras, tazas, termos.</p>
+                <a href="https://wa.me/528332453387?text=Buen%20d%C3%ADa,%20me%20interesa%20el%20personalizado%20en%20vinil" class="btn-small">Cotizar</a>
             </div>
-
-            <!-- FILA 3 -->
-            <div class="fila fila-3">
-                <div class="producto-card">
-                    <div class="producto-imagen" style="background-image: url('006.jpg');"></div>
-                    <div class="producto-overlay">
-                        <div class="producto-nombre">Papelería personalizada</div>
-                        <div class="producto-descripcion">¡Haz que cada papel cuente tu historia! 💌 Invitaciones únicas y tarjetas que dejarán huella. Diseños que reflejan tu esencia.</div>
-                        <a href="https://wa.me/528332453387?text=¡Hola!%20Estoy%20interesado/a%20en%20papelería%20personalizada%20y%20me%20gustaría%20saber%20más%20sobre%20precios%20y%20opciones%20de%20diseño." class="btn-cotizar">COTIZA AQUÍ</a>
-                    </div>
-                </div>
+        </div>
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\015.jpg" alt="Cuadernos">
+            <div class="card-overlay">
+                <h3>Cuadernos únicos</h3>
+                <p>Forros hechos a mano, stickers.</p>
+                <a href="https://wa.me/528332453387?text=Buen%20d%C3%ADa,%20me%20interesa%20el%20forrado%20y%20etiquetas%20de%20cuadernos" class="btn-small">Cotizar</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\014.jpg" alt="Eventos">
+            <div class="card-overlay">
+                <h3>Decoración para fiestas</h3>
+                <p>Centros de mesa, guirnaldas.</p>
+                <a href="https://wa.me/528332453387?text=Buen%20d%C3%ADa,%20me%20gustar%C3%ADa%20cotizar%20adornos%20para%20eventos" class="btn-small">Cotizar</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\IMG (28).jpg" alt="Personalizados">
+            <div class="card-overlay">
+                <h3>Personalizados</h3>
+                <p>Llaveros, pulseras, diademas, sombreros locos.</p>
+                <a href="https://wa.me/528332453387?text=Buen%20d%C3%ADa,%20me%20interesa%20sus%20productos%20personalizados" class="btn-small">Cotizar</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="C:\Users\imaby\Desktop\Mycrafts\006.jpg" alt="Papelería">
+            <div class="card-overlay">
+                <h3>Papelería creativa</h3>
+                <p>Invitaciones, tarjetas, planners.</p>
+                <a href="https://wa.me/528332453387?text=Buen%20d%C3%ADa,%20me%20interesa%20su%20papeleria%20creativa" class="btn-small">Cotizar</a>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <nav class="footer-menu">
-            <a href="NUESTROS TRABAJOS.html" class="footer-item">Nuestros Trabajos</a>
-            <a href="ACERCA DE NOSOTROS.html" class="footer-item">Acerca de Nosotros</a>
-            <a href="CONTACTO.html" class="footer-item">Contactanos</a>
-        </nav>
-        <div class="copyright">
-            © 2025 MyCrafts. Donde la creatividad florece y los sueños se hacen realidad.
-        </div>
-    </footer>
+<footer class="site-footer">
+    <p>© 2025 MyCrafts</p>
+    <p>Donde tus ideas se vuelven realidad</p>
+    <a href="index.html" class="btn-small">Inicio</a>
+    <p>................................</p>
+</footer>
 
-    <div class="contenedor-brillos" id="contenedorBrillos"></div>
-
-    <script>
-        function crearBrillos() {
-            const contenedor = document.getElementById('contenedorBrillos');
-            contenedor.innerHTML = '';
-            
-            for (let i = 0; i < 12; i++) {
-                const brillo = document.createElement('div');
-                brillo.className = 'brillo';
-                brillo.style.left = Math.random() * 100 + '%';
-                brillo.style.bottom = Math.random() * 100 + 'px';
-                brillo.style.animationDelay = Math.random() * 4 + 's';
-                contenedor.appendChild(brillo);
-            }
-        }
-
-        crearBrillos();
-        setInterval(crearBrillos, 4000);
-
-        document.querySelectorAll('.btn-cotizar').forEach(boton => {
-            boton.addEventListener('click', function(e) {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 150);
-            });
-        });
-    </script>
 </body>
 </html>
