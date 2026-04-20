@@ -3,630 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyCrafts - Acerca de Nosotros</title>
-    
-    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">    
-    
+    <title>MyCrafts · El origen mágico</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pev5lsb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ESTILOS BASE */
-        body {
-            background: #f99aaa;  /* NUEVO COLOR DE FONDO */
-            padding: 25px;
-            font-family: "hagrid", sans-serif;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        .neulis-cursive { font-family: "neulis-cursive", sans-serif; }
-        .neulis-sans { font-family: "neulis-sans", sans-serif; }
-        .hagrid { font-family: "hagrid", sans-serif; }
-
-        /* HEADER Y MENÚ */
-        .header {
+        body {
+            background: radial-gradient(circle at 10% 30%, #FFE4F0, #FBC8E0);
+            font-family: "neulis-sans", sans-serif;
+            color: #2C2C2C;
             text-align: center;
-            padding: 20px 0;
         }
-
-        .menu-principal {
+        .site-header {
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(255, 248, 250, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .logo {
+            font-family: "hagrid", sans-serif;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #B28BB5, #E87DAE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .nav-links {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            padding: 5px 0;
-            margin: 20px 0;
+            gap: 2.2rem;
+            flex-wrap: wrap;
         }
-
-        .menu-item {
-            font-family: "hagrid", sans-serif;
-            font-weight: 600;
-            font-size: 10px;
-            color: #292728;
+        .nav-links a {
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            color: #4A3A44;
+            transition: 0.2s;
         }
+        .nav-links a:hover { color: #E86F9C; }
 
-        .menu-item:hover {
-           color: #ff6b9d;
-        }
-
-        /* CARRUSEL */
+        /* Carrusel */
         .carrusel-container {
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 40px auto;
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 36px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
-
         .carrusel {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.5s ease;
         }
-
         .carrusel-slide {
             min-width: 100%;
             height: 400px;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
         }
-
-        .carrusel-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .carrusel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carrusel-dot.active {
-            background: #fff;
-            transform: scale(1.2);
-        }
-
         .carrusel-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255,255,255,0.7);
             border: none;
             width: 40px;
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: #8885B2;
-            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            color: #B35D7E;
+            transition: 0.2s;
+            z-index: 2;
         }
-
         .carrusel-nav:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: #ff6b9d;
+            background: white;
+            color: #E86F9C;
+        }
+        .carrusel-prev { left: 15px; }
+        .carrusel-next { right: 15px; }
+        .carrusel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
         }
 
-        .carrusel-prev {
-            left: 15px;
-        }
-
-        .carrusel-next {
-            right: 15px;
-        }
-
-        /* SECCIÓN ACERCA DE NOSOTROS */
-        .seccion-nosotros {
-            max-width: 1000px;
-            margin: 40px auto;
+        /* Contenido */
+        .about-container {
+            max-width: 1100px;
+            margin: 48px auto;
             padding: 0 20px;
         }
-
-        .titulo-principal {
-            text-align: center;
-            font-family: "neulis-cursive", sans-serif;
-            color: #8885B2;
-            font-size: 42px;
+        .card-block {
+            background: rgba(255, 248, 250, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 44px 36px;
             margin-bottom: 40px;
         }
-
-        .historia {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .historia p {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #292728;
+        h2 {
+            font-family: "neulis-cursive", sans-serif;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
-
-        /* SECCIÓN LO QUE PODEMOS HACER */
-        .servicios-titulo {
-            text-align: center;
-            font-family: "neulis-cursive", sans-serif;
-            color: #292728;
-            font-size: 32px;
-            margin: 60px 0 40px 0;
-        }
-
-        .grid-servicios {
+        .team-grid, .where-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .servicio-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .servicio-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .servicio-nombre {
-            font-family: "neulis-cursive", sans-serif;
-            color: #8885B2;
-            font-size: 24px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .servicio-lista {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .servicio-lista li {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 14px;
-            color: #292728;
-            padding: 8px 0;
-            border-bottom: 1px solid #F2E0E2;
-            display: flex;
-            align-items: center;
-        }
-
-        .servicio-lista li:before {
-            content: "•";
-            color: #ff6b9d;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* SECCIÓN SUBLIMACIÓN Y PAPELERÍA */
-        .seccion-especial {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-        }
-
-        .especial-titulo {
-            font-family: "neulis-cursive", sans-serif;
-            color: #8885B2;
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .grid-especial {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
+            margin-top: 28px;
         }
-
-        .especial-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .especial-icono {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .especial-texto {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 16px;
-            color: #292728;
-        }
-
-        /* SECCIÓN ARTE DIY */
-        .seccion-diy {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-        }
-
-        .diy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .diy-item {
+        .team-card, .place-card {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
+            border-radius: 28px;
+            padding: 16px;
             text-align: center;
-            font-family: "neulis-sans", sans-serif;
-            font-size: 14px;
-            color: #292728;
         }
-
-        /* FOOTER */
-        .footer {
+        .rating {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #E87DAE;
+        }
+        .site-footer {
+            background: #2E2530;
+            color: #FADDE8;
             text-align: center;
-            margin-top: 60px;
             padding: 40px 20px;
-            border-top: 2px solid #8885B2;
+            border-radius: 48px 48px 0 0;
+            margin-top: 60px;
         }
-
-        .footer-menu {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer-item {
-            font-family: "hagrid", sans-serif;
-            font-size: 12px;
-            color: #292728;
+            .btn-small {
+            background: #FFDF8C;
+            color: #2C2C2C;
+            padding: 8px 22px;
+            border-radius: 60px;
             text-decoration: none;
-            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 15px;
+            display: inline-block;
         }
-
-        .copyright {
-            font-family: "neulis-sans", sans-serif;
-            font-size: 12px;
-            color: #8885B2;
-        }
-
-        /* BRILLOS */
-        .contenedor-brillos {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .brillo {
-            position: absolute;
-            bottom: 0;
-            width: 9px;
-            height: 9px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #b56e9f;
-            animation: sparkleFromBottom 4s linear infinite;
-        }
-
-        @keyframes sparkleFromBottom {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-150px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .menu-principal {
-                gap: 20px;
-            }
-            
-            .grid-servicios {
-                grid-template-columns: 1fr;
-            }
-            
-            .historia {
-                padding: 20px;
-            }
-            
-            .footer-menu {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .carrusel-slide {
-                height: 300px;
-            }
-            
-            .carrusel-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .carrusel-slide {
-                height: 250px;
-            }
+            .carrusel-slide { height: 250px; }
         }
     </style>
 </head>
 <body>
-    <!-- MENU DE ARRIBA -->
-    <div class="header">
-        <h1 class="neulis-cursive" style="color:#8885B2;">MyCrafts</h1>
-        
-        <nav class="menu-principal">
-            <a href="NUESTROS TRABAJOS.html" class="menu-item">NUESTROS TRABAJOS</a>
-            <a href="ACERCA DE NOSOTROS.html" class="menu-item">ACERCA DE NOSOTROS</a>
-            <a href="CONTACTO.html" class="menu-item">CONTACTANOS</a>
-        </nav>
+
+<header class="site-header">
+    <div class="logo" style="font-family: neulis-cursive, sans-serif;">MyCrafts</div>
+    <div class="nav-links">
+        <a href="NUESTROS TRABAJOS.html">Trabajos</a>
+        <a href="ACERCA DE NOSOTROS.html">Acerca de</a>
+        <a href="CONTACTO.html">Contacto</a>
+    </div>
+</header>
+
+<div class="about-container">
+    <!-- CARRUSEL -->
+    <div class="carrusel-container">
+        <div class="carrusel">
+            <div class="carrusel-slide" style="background-image: url('IMG\ \(19\).jpg');"></div>
+            <div class="carrusel-slide" style="background-image: url('IMG\ \(009\).jpg');"></div>
+            <div class="carrusel-slide" style="background-image: url('IMG\ \(56\).jpg');"></div>
+        </div>
+        <button class="carrusel-nav carrusel-prev">❮</button>
+        <button class="carrusel-nav carrusel-next">❯</button>
+        <div class="carrusel-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+        </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL - ACERCA DE NOSOTROS -->
-    <section class="seccion-nosotros">
-        
-        <!-- HISTORIA -->
-        <h2 class="titulo-principal">ACERCA DE NOSOTROS</h2>
-        
-        <!-- CARRUSEL DE IMÁGENES -->
-        <div class="carrusel-container">
-            <div class="carrusel">
-                <div class="carrusel-slide" style="background-image: url('011.jpg');"></div>
-                <div class="carrusel-slide" style="background-image: url('IMG\ \(22\).jpg');"></div>
-                <div class="carrusel-slide" style="background-image: url('IMG\ \(17\).jpg');"></div>
-            </div>
-            
-            <button class="carrusel-nav carrusel-prev">❮</button>
-            <button class="carrusel-nav carrusel-next">❯</button>
-            
-            <div class="carrusel-controls">
-                <div class="carrusel-dot active" data-index="0"></div>
-                <div class="carrusel-dot" data-index="1"></div>
-                <div class="carrusel-dot" data-index="2"></div>
-            </div>
+    <div class="card-block">
+        <h2>✨ La hada que empezó todo ✨</h2>
+        <p>Mycrafts nace del gusto por las manualidades y la creatividad, iniciando en 2018 con trabajos escolares y de temporada. Con el tiempo, evolucionó incorporando nuevas técnicas, materiales y diseño digital, lo que permitió ofrecer productos personalizados y de mayor calidad. Actualmente, sigue en crecimiento con el objetivo de ampliar sus servicios y llegar a más personas que buscan soluciones creativas y confiables..</p>
+    </div>
+
+    <div class="card-block">
+        <h2>🌟 Misión 🌟</h2>
+        <p>Crear productos y diseños de alta calidad elaborados con dedicación, pasión y atención al detalle, como si cada proyecto fuera propio. En Mycrafts nos esforzamos por superar las expectativas de cada cliente, brindando un servicio cercano y comprometido, enfocado en entregar resultados que generen satisfacción y orgullo en cada trabajo realizado.</p>
+    </div>
+
+    <div class="card-block">
+        <h2>🏆 Confianza mágica</h2>
+        <div class="rating">4.9 ★★★★★</div>
+        <p style="margin-top: 10px;">Valoración de nuestros clientes encantados</p>
+    </div>
+
+    <div class="card-block">
+        <h2>🛍️ ¿Dónde encontrarnos?</h2>
+        <div class="where-grid">
+            <div class="place-card">✨ Pedidos por WhatsApp</div>
+            <div class="place-card">✨ Tienda en linea</div>
+            <div class="place-card">✨ En nuestro local</div>
         </div>
-        
-        <div class="historia">
-            <p>
-                MyCrafts nació hace 7 años con un sueño sencillo: decorar cuadernos con forros hechos a mano. 
-                Poco a poco, la creatividad fue creciendo y sumamos maquetas, manualidades y piezas personalizadas.
-            </p>
-            <p>
-                Hoy, MyCrafts es un espacio lleno de imaginación y pasión, donde cada creación refleja dedicación, 
-                amor por los detalles y la ilusión de compartir lo hecho a mano.
-            </p>
-        </div>
+    </div>
+</div>
 
-        <!-- LO QUE PODEMOS HACER -->
-        <h3 class="servicios-titulo">LO QUE PODEMOS HACER</h3>
+<footer class="site-footer">
+    <p>© 2025 MyCrafts</p>
+    <p>Donde tus ideas se vuelven realidad</p>
+        <a href="index.html" class="btn-small">Inicio</a>
+     <p>................................</p>
+</footer>
 
-        <div class="grid-servicios">
-            <!-- Vinil y personalización -->
-            <div class="servicio-card">
-                <div class="servicio-nombre">Vinil y personalización</div>
-                <ul class="servicio-lista">
-                    <li>Diseños en vinil adhesivo y textil</li>
-                    <li>Playeras personalizadas</li>
-                    <li>Tazas, termos y botellas decoradas</li>
-                    <li>Stickers y calcomanías</li>
-                    <li>Forrado y personalización de cuadernos/libratas</li>
-                </ul>
-            </div>
+<script>
+    // Carrusel funcional
+    const carrusel = document.querySelector('.carrusel');
+    const slides = document.querySelectorAll('.carrusel-slide');
+    const prevBtn = document.querySelector('.carrusel-prev');
+    const nextBtn = document.querySelector('.carrusel-next');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+    const total = slides.length;
 
-            <!-- Decoración y hogar -->
-            <div class="servicio-card">
-                <div class="servicio-nombre">Decoración y hogar</div>
-                <ul class="servicio-lista">
-                    <li>Cuadros y letreros personalizados</li>
-                    <li>Macetas pintadas o forradas</li>
-                    <li>Velas decoradas</li>
-                    <li>Adornos para fiestas y eventos</li>
-                    <li>Accesorios y detalles</li>
-                </ul>
-            </div>
-
-            <!-- Accesorios y detalles -->
-            <div class="servicio-card">
-                <div class="servicio-nombre">Accesorios y detalles</div>
-                <ul class="servicio-lista">
-                    <li>Llaveros, pulseras y collares</li>
-                    <li>Bolsitas de regalo</li>
-                    <li>Recuerdos para eventos</li>
-                    <li>Detalles personalizados</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SUBLIMACIÓN Y PAPELERÍA -->
-        <div class="seccion-especial">
-            <h4 class="especial-titulo">Sublimación y estampado</h4>
-            <div class="grid-especial">
-                <div class="especial-item">
-                    <div class="especial-icono">☕</div>
-                    <div class="especial-texto">Sublimación en tazas, cojines y playeras</div>
-                </div>
-                <div class="especial-item">
-                    <div class="especial-icono">🎨</div>
-                    <div class="especial-texto">Impresiones con frases o ilustraciones únicas</div>
-                </div>
-                <div class="especial-item">
-                    <div class="especial-icono">🎁</div>
-                    <div class="especial-texto">Regalos personalizados con fotos</div>
-                </div>
-            </div>
-
-            <h4 class="especial-titulo" style="margin-top: 40px;">Papelería creativa</h4>
-            <div class="grid-especial">
-                <div class="especial-item">
-                    <div class="especial-icono">💌</div>
-                    <div class="especial-texto">Tarjetas y felicitaciones</div>
-                </div>
-                <div class="especial-item">
-                    <div class="especial-icono">📅</div>
-                    <div class="especial-texto">Invitaciones y recordatorios</div>
-                </div>
-                <div class="especial-item">
-                    <div class="especial-icono">📔</div>
-                    <div class="especial-texto">Scrapbooking y álbumes de fotos</div>
-                </div>
-                <div class="especial-item">
-                    <div class="especial-icono">📝</div>
-                    <div class="especial-texto">Planners, cuadernos y stickers decorativos</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ARTE DIY Y RECICLAJE -->
-        <div class="seccion-diy">
-            <h4 class="especial-titulo">Arte DIY y reciclaje</h4>
-            <div class="diy-grid">
-                <div class="diy-item">Reutilización de materiales (botellas, madera, ropa)</div>
-                <div class="diy-item">Manualidades temáticas (Navidad, Halloween, etc.)</div>
-                <div class="diy-item">Proyectos con resina y acrílico</div>
-                <div class="diy-item">Y MÁS!!</div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <nav class="footer-menu">
-            <a href="NUESTROS TRABAJOS.html" class="footer-item">Nuestros Trabajos</a>
-            <a href="ACERCA DE NOSOTROS.html" class="footer-item">Acerca de Nosotros</a>
-            <a href="CONTACTO.html" class="footer-item">Contactanos</a>
-        </nav>
-        <div class="copyright">
-            © 2025 Abigayd. All rights reserved.
-        </div>
-    </footer>
-
-    <div class="contenedor-brillos" id="contenedorBrillos"></div>
-
-    <script>
-        // CARRUSEL
-        document.addEventListener('DOMContentLoaded', function() {
-            const carrusel = document.querySelector('.carrusel');
-            const slides = document.querySelectorAll('.carrusel-slide');
-            const dots = document.querySelectorAll('.carrusel-dot');
-            const prevBtn = document.querySelector('.carrusel-prev');
-            const nextBtn = document.querySelector('.carrusel-next');
-            
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            let autoSlideInterval;
-            
-            function updateCarrusel() {
-                carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-            
-            function goToSlide(index) {
-                currentIndex = index;
-                updateCarrusel();
-                resetAutoSlide();
-            }
-            
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarrusel();
-            }
-            
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarrusel();
-            }
-            
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
-            }
-            
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoSlide();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-            
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const index = parseInt(dot.getAttribute('data-index'));
-                    goToSlide(index);
-                });
-            });
-            
-            startAutoSlide();
-            
-            carrusel.parentElement.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
-            
-            carrusel.parentElement.addEventListener('mouseleave', () => {
-                startAutoSlide();
-            });
-        });
-
-        // BRILLOS
-        function crearBrillos() {
-            const contenedor = document.getElementById('contenedorBrillos');
-            contenedor.innerHTML = '';
-            
-            for (let i = 0; i < 12; i++) {
-                const brillo = document.createElement('div');
-                brillo.className = 'brillo';
-                brillo.style.left = Math.random() * 100 + '%';
-                brillo.style.bottom = Math.random() * 100 + 'px';
-                brillo.style.animationDelay = Math.random() * 4 + 's';
-                contenedor.appendChild(brillo);
-            }
-        }
-
-        crearBrillos();
-        setInterval(crearBrillos, 4000);
-    </script>
+    function updateCarrusel() {
+        carrusel.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+    function nextSlide() { index = (index + 1) % total; updateCarrusel(); }
+    function prevSlide() { index = (index - 1 + total) % total; updateCarrusel(); }
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    dots.forEach(dot => dot.addEventListener('click', () => {
+        index = parseInt(dot.dataset.index);
+        updateCarrusel();
+    }));
+    setInterval(nextSlide, 5000);
+</script>
 </body>
 </html>
